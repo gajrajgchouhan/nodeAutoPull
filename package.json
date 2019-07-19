@@ -1,0 +1,22 @@
+{
+  "name": "nodeautopull",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milind712000/nodeAutoPull.git"
+  },
+  "author": "Milind712000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Milind712000/nodeAutoPull/issues"
+  },
+  "homepage": "https://github.com/Milind712000/nodeAutoPull#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
