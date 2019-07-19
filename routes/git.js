@@ -25,7 +25,7 @@ router.post('/:id', fn(async(req, res, next) => {
 	} catch (error) {
 		status = await subprocess("git status", options);
 		// send email to server admin
-		sendEmail(error.toString(), status.stdout, repoInfo.name);
+		await sendEmail(error.toString(), status.stdout, repoInfo.name);
 		return next(new Error("Encountered error while rebasing"));
 	}
 
