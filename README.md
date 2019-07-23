@@ -12,7 +12,7 @@ node app.js
 ````  
 
 ## Webhook url
-http://<host>/git/<key from repositoryList for repository>
-example : 
-http://95557dbe.ngrok.io/git/1
-http://95557dbe.ngrok.io/git/2
+http://\<host\>/git/\<key from repositoryList for repository\>  
+example :  
+http://95557dbe.ngrok.io/git/1  
+http://95557dbe.ngrok.io/git/2  
