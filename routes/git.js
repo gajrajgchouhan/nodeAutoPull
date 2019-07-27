@@ -11,13 +11,15 @@ router.post('/:id', fn(async(req, res, next) => {
 	let rebase = {};
 	let status = {};
 	const repoInfo = repositoryList[req.params.id];
+	
+	if(!repoInfo) return next(new Error("Repository not registered."));
+	if(!verifyPostData(req, repoInfo.secret)) return next(new Error("failed to match secret."));
+	
 	const options = {
 		timeout : 20000,
 		cwd : repoInfo.path
 	}
 
-	if(!repoInfo) return next(new Error("Repository not registered."));
-	if(!verifyPostData(req, repoInfo.secret)) return next(new Error("failed to match secret."));
 
 	try {
 		await subprocess("git fetch",options);
