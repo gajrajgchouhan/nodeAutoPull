@@ -2,14 +2,14 @@ const router = require('express').Router();
 const {promisify} = require('util');
 const {exec} = require('child_process');
 const subprocess = promisify(exec);
-const {repositoryList} = require('../conf/repositoryList');
 const {verifyPostData, sendEmail} = require('../helper/verify');
 const fn = require('express-async-handler');
-
+let repositoryListFn = require('../conf/repositoryList');
 
 router.post('/:id', fn(async(req, res, next) => {
 	let rebase = {};
 	let status = {};
+	const repositoryList = repositoryListFn();
 	const repoInfo = repositoryList[req.params.id];
 	
 	if(!repoInfo) return next(new Error("Repository not registered."));

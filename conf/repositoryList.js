@@ -1,12 +1,8 @@
-module.exports.repositoryList = {
-	'1':{
-		'name':'test repository',
-		'path':'/home/milind/Documents/projects/test-repo',
-		'secret':'lvgshkvh750945'
-	},
-	'2':{
-		'name':'name of 2nd repository',
-		'path':'/df/adfs/fda/dfa/',
-		'secret':'as435djfav'
-	}
+const fs = require('fs');
+const path = require('path');
+
+module.exports = function() {
+	let rawdata = fs.readFileSync(path.join(__dirname, "repositoryList.json"));
+	let repositoryList = JSON.parse(rawdata);
+	return repositoryList;
 }
