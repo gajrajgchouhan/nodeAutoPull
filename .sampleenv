@@ -1,0 +1,9 @@
+NODE_ENV=production
+PORT=1234
+
+# email id which sends the email
+SenderGmail=foo.webhook@gmail.com
+SenderPassword=isthisapassword?
+
+# server team email where the error report is sent
+ReceiverEmail=send.me.errors@gmail.com
