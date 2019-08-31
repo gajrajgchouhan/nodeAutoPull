@@ -33,23 +33,23 @@ module.exports.sendEmail = async(rebaseOutput, statusOutput, repoName) => {
 	var transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
-			user: 'milcfvgjhictfgvhbjnd.topnfctgvhbjno@gmail.com',
-			pass: 'tdrybgufghjbnkdryjgurytuk'
+			user: process.env.SenderGmail,
+			pass: process.env.SenderPassword
 		}
 	});
 	const mailOptions = {
-		from: 'milind.topno@gmail.com', // sender address
-		to: 'spam4milind@gmail.com', // list of receivers
+		from: process.env.SenderGmail, // sender address
+		to: process.env.ReceiverEmail, // list of receivers
 		subject: 'Error in SNTC Server', // Subject line
 		html: `
 		<h1>There was an error in sntc server while rebasing 
 		latest changes in ${repoName}</h1></br>
 
 		<h2>Git rebase output :: </h2></br>
-		<p>${rebaseOutput}</p></hr>
+		<pre>${rebaseOutput}</pre></hr>
 
 		<h2>Git status output :: </h2></br>
-		<p>${statusOutput}</p></br>
+		<pre>${statusOutput}</pre></br>
 		`
 	};
 	await transporter.sendMail(mailOptions);
